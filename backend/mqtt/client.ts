@@ -1,7 +1,7 @@
 import mqtt from 'mqtt';
 import { addTaskToRedis } from '../controllers/taskController';
 
-const client = mqtt.connect('mqtt://broker.hivemq.com'); // Replace with your broker if needed
+const client = mqtt.connect('mqtt://broker.hivemq.com'); 
 
 client.on('connect', () => {
   console.log('MQTT connected');
