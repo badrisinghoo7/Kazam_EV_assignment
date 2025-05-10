@@ -1,6 +1,6 @@
 # 📝 Kazam_EV_assignment
 
-A real-time Notes App built with React, Tailwind CSS, Node.js, Redis,mqtt, and MongoDB. Add and view notes instantly with seamless WebSocket-based communication and smart data caching.
+A real-time Notes App built with React, Tailwind CSS, Node.js, Redis, **MQTT**, and MongoDB. Add and view notes instantly using lightweight publish-subscribe messaging via MQTT, with smart caching and persistent storage.
 
 ---
 
@@ -23,7 +23,7 @@ A real-time Notes App built with React, Tailwind CSS, Node.js, Redis,mqtt, and M
 **kazam_assignment** is a real-time Notes Application that allows users to add and view notes instantly.  
 It leverages:
 
-- **MQTT** for real-time WebSocket communication  
+- **MQTT** for real-time communication using a publish-subscribe pattern  
 - **Redis** for task caching  
 - **MongoDB** for long-term storage when the number of notes exceeds 50  
 
@@ -33,7 +33,7 @@ The frontend is fully responsive and built using **React** and **Tailwind CSS** 
 
 ## ✨ Features
 
-- ⚡ **Real-Time Updates:** Instantly view added notes via WebSocket (MQTT)  
+- ⚡ **Real-Time Updates:** Instantly view added notes using MQTT protocol over WebSockets  
 - 🧠 **Task Caching:** Temporarily stores notes in Redis for quick access  
 - 💾 **MongoDB Storage:** Moves notes to MongoDB automatically once they exceed 50 entries  
 - 🌐 **HTTP API:** REST endpoint for fetching all tasks  
@@ -49,13 +49,13 @@ The frontend is fully responsive and built using **React** and **Tailwind CSS** 
 - TypeScript  
 - Tailwind CSS  
 - Axios  
-- MQTT Client  
+- MQTT over WebSocket (MQTT.js Client)  
 
 ### **Backend**
 - Node.js  
 - Express.js  
 - TypeScript  
-- MQTT Server  
+- MQTT Broker & Client
 - dotenv  
 
 ### **Database**
