@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { publishTask } from '../services/mqttService';
 import '../styles/TaskCard.css'; // Adjust the path as necessary
 import { api } from '../constants/api';
-
+import mqtt from 'mqtt';
 export interface Task {
   text: string;
   timestamp: string;
 }
-
+const connect =mqtt.connect( 'wss://broker.hivemq.com:8884/mqtt')
 const TaskCard = () => {
   const [taskContent, setTaskContent] = useState<string>('');
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -58,25 +57,19 @@ const TaskCard = () => {
   }
 };
 
-
-
-
   const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
   if (taskContent.trim()) {
-    publishTask(taskContent);
+    connect.publish('add', taskContent);
+    // connect,(taskContent);
     setTaskContent('');
-    
-    // Wait 1 second before fetching to give backend time to store
-    setTimeout(() => {
-      fetchTasks();
-    }, 1000);
+  
   }
 };
 
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [tasks]);
   // console.log("Tasks:", tasks);
 
   return (
