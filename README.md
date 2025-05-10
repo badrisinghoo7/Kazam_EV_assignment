@@ -1,6 +1,6 @@
-# 📝 kazam_assignment
+# 📝 Kazam_EV_assignment
 
-A real-time Notes App built with React, Tailwind CSS, Node.js, Redis, and MongoDB. Add and view notes instantly with seamless WebSocket-based communication and smart data caching.
+A real-time Notes App built with React, Tailwind CSS, Node.js, Redis,mqtt, and MongoDB. Add and view notes instantly with seamless WebSocket-based communication and smart data caching.
 
 ---
 
@@ -23,7 +23,7 @@ A real-time Notes App built with React, Tailwind CSS, Node.js, Redis, and MongoD
 **kazam_assignment** is a real-time Notes Application that allows users to add and view notes instantly.  
 It leverages:
 
-- **Socket.IO** for real-time WebSocket communication  
+- **MQTT** for real-time WebSocket communication  
 - **Redis** for task caching  
 - **MongoDB** for long-term storage when the number of notes exceeds 50  
 
@@ -33,7 +33,7 @@ The frontend is fully responsive and built using **React** and **Tailwind CSS** 
 
 ## ✨ Features
 
-- ⚡ **Real-Time Updates:** Instantly view added notes via WebSocket (Socket.IO)  
+- ⚡ **Real-Time Updates:** Instantly view added notes via WebSocket (MQTT)  
 - 🧠 **Task Caching:** Temporarily stores notes in Redis for quick access  
 - 💾 **MongoDB Storage:** Moves notes to MongoDB automatically once they exceed 50 entries  
 - 🌐 **HTTP API:** REST endpoint for fetching all tasks  
@@ -49,13 +49,13 @@ The frontend is fully responsive and built using **React** and **Tailwind CSS** 
 - TypeScript  
 - Tailwind CSS  
 - Axios  
-- Socket.IO Client  
+- MQTT Client  
 
 ### **Backend**
 - Node.js  
 - Express.js  
 - TypeScript  
-- Socket.IO Server  
+- MQTT Server  
 - dotenv  
 
 ### **Database**
@@ -74,4 +74,4 @@ To run this project locally, follow the steps below:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/kundan761/kazam_assignment.git
+   git clone https://github.com/badrisinghoo7/Kazam_EV_assignment.git
