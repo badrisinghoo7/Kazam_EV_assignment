@@ -8,15 +8,20 @@ dotenv.config();
 const redisKey = process.env.REDIS_KEY as string;
 
 export const addTaskToRedis = async (task: string): Promise<void> => {
+  //  await redis.del(redisKey);
   const cached = await redis.get(redisKey);
-  const tasks: string[] = cached ? JSON.parse(cached) : [];
-console.log("this is working in redis controller")
-  tasks.push(task);
+ 
+  // await redis.del(redisKey);
+  const tasks = cached ? JSON.parse(cached) : [];
+  tasks.push({ text: task, timestamp: new Date().toISOString() });
+    // console.log("this is working in redis controller,cached");
+
 
   if (tasks.length > 50) {
-    console.log('Too many tasks, now working in mongo db database...');
-    await Task.insertMany(tasks.map((t) => ({ text: t, createdAt: new Date() })));
+    // console.log('task pushed to db');
+    await Task.insertMany(tasks);
     await redis.del(redisKey);
+    // console.log('task flashed from redis');
   } else {
     await redis.set(redisKey, JSON.stringify(tasks));
   }
