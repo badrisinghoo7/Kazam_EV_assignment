@@ -1,2 +1,2 @@
-// export const api ="https://kazam-assignment-cf6k.onrender.com";
-export const api ="http://localhost:3000";
+export const api ="https://kazam-ev-assignment.onrender.com";
+// export const api ="http://localhost:3000";
