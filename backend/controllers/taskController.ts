@@ -17,7 +17,7 @@ export const addTaskToRedis = async (task: string): Promise<void> => {
     // console.log("this is working in redis controller,cached");
 
 
-  if (tasks.length > 50) {
+  if (tasks.length > 3) {
     // console.log('task pushed to db');
     await Task.insertMany(tasks);
     await redis.del(redisKey);
